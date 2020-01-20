@@ -1,7 +1,7 @@
-@extends('layouts.main')
+@extends('shop.layouts.main')
 
 @section('title', 'Homepage')
 
 @section('content')
-    / - is active
+    is active index
 @endsection
