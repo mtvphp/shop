@@ -10,19 +10,26 @@ class CategoryController extends Controller
 {
     public function create()
     {
-        return view('admin.category.create');
+        $categories = Category::all();
+
+        return view('admin.category.create', [
+            'categories' => $categories,
+        ]);
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|min:3'
+
         ]);
 
-        Category::create([
-            'title' => $request->title
-        ]);
+        $request->data = json_decode($request->data);
 
-        return redirect()->back();
+        if($request->data) {
+            foreach ($request->data as $d) {
+                echo 'id:' . $d->id . ',';
+            }
+        }
     }
+
 }

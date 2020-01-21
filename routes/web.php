@@ -18,5 +18,18 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], fu
             'uses' => 'CategoryController@store',
             'as' => 'store'
         ]);
+
+        Route::get('/edit/{id}', [
+            'uses' => 'CategoryController@edit',
+            'as' => 'edit'
+        ]);
+
+        Route::put('/update/{id}', [
+            'uses' => 'CategoryController@update',
+            'as' => 'update'
+        ]);
     });
 });
+
+
+Route::resource('/t','T');
